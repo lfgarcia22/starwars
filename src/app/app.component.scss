@@ -1,0 +1,40 @@
+@import "/src/variables";
+
+@mixin container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 984px;
+  border-style: solid;
+  border-color: $color-dark;
+  position: relative;
+
+  @media screen and (max-width: 984px) {
+    border-width: 1px 0;
+  }
+
+  @media screen and (min-width: 985px) {
+    border-width: 1px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $color-white;
+    z-index: -1;
+  }
+}
+
+@import "./app.header";
+
+.container {
+  @include container;
+  background-color: $color-white;
+  border-bottom: 0;
+  height: 100%;
+  max-height: calc(100% - 125px);
+  overflow-y: auto;
+}

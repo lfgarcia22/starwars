@@ -1,0 +1,81 @@
+@mixin nav-link-hf {
+  outline: 0;
+  box-shadow: 0 0 5px 0px $color-dark;
+  border-radius: 5px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    height: 5px;
+  }
+
+  &::before {
+    border-radius: 2px;
+    left: 5px;
+    width: 20px;
+    background-color: $color-dark;
+  }
+
+  &::after {
+    border-radius: 2px 4px 4px 2px;
+    left: 25px;
+    width: calc(100% - 30px);
+    background-color: $color-red;
+    animation-name: lightsaber;
+    animation-duration: 1s;
+  }
+}
+
+.header {
+  @include container;
+  background-color: rgba($color-yellow, 0.5);
+}
+
+.header-nav__list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-nav__item {
+  color: $color-dark;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.header-nav__link {
+  padding: 5px 15px 10px;
+  position: relative;
+
+  @keyframes lightsaber {
+    from {
+      width: 0;
+    }
+    to {
+      width: calc(100% - 30px);
+    }
+  }
+
+  .header-nav__item--active & {
+    @include nav-link-hf;
+  }
+
+  &:hover {
+    @include nav-link-hf;
+
+    &::after {
+      background-color: $color-blue;
+    }
+  }
+
+  &:focus {
+    @include nav-link-hf;
+
+    &::after {
+      background-color: $color-blue;
+    }
+  }
+}
