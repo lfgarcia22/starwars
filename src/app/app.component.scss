@@ -35,6 +35,11 @@
   background-color: $color-white;
   border-bottom: 0;
   height: 100%;
-  max-height: calc(100% - 125px);
+  max-height: calc(100% - 105px);
   overflow-y: auto;
+
+  &.film-crawl {
+    background-color: $color-dark;
+    overflow: hidden;
+  }
 }
