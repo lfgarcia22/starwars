@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 import { AppComponent } from './app.component';
 import { TablePaginationComponent } from './commons/table-pagination.component';
+import { FilmComponent } from './film/film.component';
 import { PlanetInfoComponent } from './planet/modal/planet-info.component';
 import { PlanetComponent } from './planet/planet.component';
 
@@ -14,7 +15,8 @@ import { PlanetComponent } from './planet/planet.component';
     AppComponent,
     TablePaginationComponent,
     PlanetComponent,
-    PlanetInfoComponent
+    PlanetInfoComponent,
+    FilmComponent
   ],
   imports: [
     HttpClientModule,

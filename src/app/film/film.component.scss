@@ -1,0 +1,47 @@
+@import "/src/variables";
+
+/*
+ * Crawl effect: https://css-tricks.com/snippets/css/star-wars-crawl-text/
+ */
+
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: $color-banana-yellow;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.film {
+  position: relative;
+  top: 9999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+  text-align: center;
+}
+
+.film__heading {
+  text-transform: uppercase;
+}
+
+.film__description {
+  margin-top: 80px;
+}

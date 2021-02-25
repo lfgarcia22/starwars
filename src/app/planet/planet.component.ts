@@ -24,6 +24,8 @@ export class PlanetComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const container = document.getElementById('main_container');
+    container?.classList.remove('film-crawl');
     this.headers = [
       { label: 'Name', sort: '' },
       { label: 'Terrain', sort: '' },
@@ -35,6 +37,7 @@ export class PlanetComponent implements OnInit {
     this.service.getPlanetInfo().subscribe(planet => this.showModal = planet && planet.name != null);
     this.route.queryParams.subscribe(params => {
       const { page } = params;
+      this.service.loadPlanetInfo();
       if (!page) {
         this.router.navigate(['planets'], { queryParams: { page: 1 } });
       } else {
