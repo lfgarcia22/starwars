@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./reset";
+
+html {
+  font-family: sans-serif, verdana;
+  height: 100%;
+
+  @media screen and (min-width: 985px) {
+    background-image: url(/assets/page-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    body {
+      padding: 20px 0;
+      height: calc(100% - 40px);
+    }
+  }
+}
