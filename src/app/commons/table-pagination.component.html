@@ -1,0 +1,18 @@
+<section class="pagination">
+  <a class="pagination-link pagination-link--first" [routerLink]="route" [queryParams]="{ page: 1}"
+    *ngIf="current > 2">&lt;&lt;</a>
+  <a class="pagination-link pagination-link--first" *ngIf="current <= 2"></a>
+  <a class="pagination-link pagination-link--prev" [routerLink]="route" [queryParams]="{ page: current - 1 }"
+    *ngIf="current > 1">&lt;</a>
+  <a class="pagination-link pagination-link--prev" *ngIf="current <= 1"></a>
+  <a class="pagination-link number" *ngFor="let page of totalPages | slice:sliceFromCurrent:sliceToCurrent"
+    [ngClass]="{ 'active': page === current }" [routerLink]="route" [queryParams]="{ page: page }">
+    {{page}}
+  </a>
+  <a class="pagination-link pagination-link--next" [routerLink]="route" [queryParams]="{ page: current + 1 }"
+    *ngIf="current !== 0 && current < totalPages.length">&gt;</a>
+  <a class="pagination-link pagination-link--next" *ngIf="current === 0 || current >= totalPages.length"></a>
+  <a class="pagination-link pagination-link--last" [routerLink]="route" [queryParams]="{ page: totalPages.length}"
+    *ngIf="current !== 0 && current < totalPages.length - 1">&gt;&gt;</a>
+  <a class="pagination-link pagination-link--last" *ngIf="current === 0 || current >= totalPages.length - 1"></a>
+</section>

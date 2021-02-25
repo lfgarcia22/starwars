@@ -5,10 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 import { AppComponent } from './app.component';
+import { TablePaginationComponent } from './commons/table-pagination.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TablePaginationComponent
   ],
   imports: [
     HttpClientModule,

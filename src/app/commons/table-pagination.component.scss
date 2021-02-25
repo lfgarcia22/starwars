@@ -1,0 +1,46 @@
+@import "/src/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 0;
+
+  .pagination-link {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px;
+
+    &:not(.pagination-link--active) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.active {
+      display: inline-flex;
+      pointer-events: none;
+      text-shadow: 0 0 5px $color-blue;
+    }
+  }
+
+  .pagination-link--first,
+  .pagination-link--last {
+    display: inline-flex;
+    width: 30px;
+  }
+
+  .pagination-link--prev,
+  .pagination-link--next {
+    display: inline-flex;
+    width: 15px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .pagination-link {
+    &.number {
+      display: none;
+    }
+  }
+}
