@@ -34,10 +34,19 @@
   width: 20px;
   transform: rotate(45deg);
 
+  &:hover {
+    background-color: $color-dark;
+
+    &::before,
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
   &::before,
   &::after {
     content: "";
-    background-color: $color-blue;
+    background-color: $color-dark;
     position: absolute;
   }
 
@@ -74,5 +83,14 @@
 
   & + & {
     margin: 15px 0 0;
+  }
+
+  &.planet__label--link {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 5px $color-blue;
+    }
   }
 }

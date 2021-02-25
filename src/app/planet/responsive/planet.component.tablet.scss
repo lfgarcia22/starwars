@@ -102,4 +102,13 @@
   .planet__label--mobile {
     display: none;
   }
+
+  .planet__label--desktop {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 5px $color-blue;
+    }
+  }
 }

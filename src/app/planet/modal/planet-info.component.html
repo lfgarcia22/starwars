@@ -30,8 +30,8 @@
       {{planet.surface_water}}
     </span>
 
-    <span class="planet__label" *ngFor="let film of planet.films" (click)="goToFilm(film)">
-      {{film}}
+    <span class="planet__label planet__label--link" *ngFor="let film of planet.films" (click)="goToFilm(film)">
+      - {{film}}
     </span>
   </div>
 </article>
