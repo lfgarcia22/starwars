@@ -1,0 +1,15 @@
+@import "/src/variables";
+
+.planets__heading {
+  text-align: center;
+}
+
+.planets__table {
+  margin: 15px 0 0;
+}
+
+@import "./responsive/planet.component.mobile";
+
+@import "./responsive/planet.component.tablet";
+
+@import "./responsive/planet.component.desktop";

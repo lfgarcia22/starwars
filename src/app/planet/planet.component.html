@@ -1,0 +1,49 @@
+<article class="planets">
+  <section role="table" aria-label="Planets" aria-describedby="planets_table_heading" class="planets__table">
+    <div role="rowgroup" class="planets-table__head">
+      <div role="row" class="planets-table__row">
+        <h3 role="columnheader" class="planets-table__col" *ngFor="let header of headers; let idx = index"
+          (click)="setSorting(idx)" [ngClass]="{ 'asc': header.sort === 'asc', 'desc': header.sort === 'desc' }">
+          <span class="planets-table__col-txt">
+            {{header.label}}
+          </span>
+        </h3>
+      </div>
+    </div>
+    <div role="rowgroup" class="planets-table__body">
+      <div role="row" class="planets-table__row" *ngFor="let planet of planets.results; let idx = index">
+        <input id="planet_expand__{{idx}}" type="checkbox" class="planet__expand" hidden="hidden" />
+        <span role="cell" class="planets-table__col">
+          <label for="planet_expand__{{idx}}" class="planet__label--mobile">
+            {{planet.name}}
+            <span class="planet__label-expander"></span>
+          </label>
+          <span class="planet__label--desktop" (click)="openModal(planet)">
+            {{planet.name}}
+          </span>
+        </span>
+        <span role="cell" class="planets-table__col">
+          <span class="planet__label--mobile">Terrain: </span>
+          <span *ngIf="planet.terrain !== 'unknown'">{{planet.terrain}}</span>
+        </span>
+        <span role="cell" class="planets-table__col">
+          <span class="planet__label--mobile">Climate: </span>
+          <span *ngIf="planet.climate !== 'unknown'">{{planet.climate}}</span>
+        </span>
+        <span role="cell" class="planets-table__col">
+          <span class="planet__label--mobile">Diameter: </span>
+          <span *ngIf="planet.diameter !== 'unknown'">{{planet.diameter}}</span>
+        </span>
+        <span role="cell" class="planets-table__col">
+          <span class="planet__label--mobile">Population: </span>
+          <span *ngIf="planet.population !== 'unknown'">{{planet.population}}</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <app-pagination [route]="['/planets']" [current]="current" [count]="planets.count"></app-pagination>
+
+</article>
+
+<app-planet-info [hidden]="!showModal"></app-planet-info>

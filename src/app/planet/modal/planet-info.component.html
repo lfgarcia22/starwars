@@ -1,0 +1,37 @@
+<article class="planet">
+  <span class="planet__close" (click)="closeModal()"></span>
+  <div class="planet__wrapper" *ngIf="planet">
+    <h2 class="planet__label">
+      {{planet.name}}
+    </h2>
+
+    <span class="planet__label">
+      <span>Gravity:</span>
+      {{planet.gravity}}
+    </span>
+
+    <span class="planet__label">
+      <span>Orbital period:</span>
+      {{planet.orbital_period}}
+    </span>
+
+    <span class="planet__label">
+      <span>Rotation period:</span>
+      {{planet.rotation_period}}
+    </span>
+
+    <span class="planet__label">
+      <span>Surface water:</span>
+      {{planet.surface_water}}
+    </span>
+
+    <span class="planet__label">
+      <span>Films:</span>
+      {{planet.surface_water}}
+    </span>
+
+    <span class="planet__label" *ngFor="let film of planet.films" (click)="goToFilm(film)">
+      {{film}}
+    </span>
+  </div>
+</article>

@@ -1,0 +1,90 @@
+@import "/src/variables";
+
+@media screen and (max-width: 430px) {
+  .planets-table__head {
+    display: none;
+  }
+
+  .planets-table__body {
+    border-collapse: collapse;
+
+    .planets-table__row {
+      border-color: $color-dark;
+      border-style: solid;
+      border-width: 1px 2px;
+      display: flex;
+      flex-direction: column;
+
+      &:first-child {
+        border-top-width: 2px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      &:last-child {
+        border-bottom-width: 2px;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+  }
+
+  .planet__expand {
+    &:checked ~ .planets-table__col {
+      &:nth-child(2) {
+        background-color: rgba($color-red, 0.2);
+        border-bottom: 1px solid $color-dark;
+        margin: 0 0 5px;
+
+        .planet__label-expander {
+          transform: rotate(-135deg);
+        }
+      }
+
+      &:nth-child(n + 3) {
+        display: inline-flex;
+      }
+    }
+  }
+
+  .planets-table__col {
+    &:nth-child(2) {
+      transition: 0.2s ease-in-out;
+      transition-property: background-color;
+
+      .planet__label--mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      .planet__label-expander {
+        border-color: $color-red;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        transform: rotate(45deg);
+        transition: 0.2s ease-in;
+        transition-property: transform;
+        height: 8px;
+        width: 8px;
+      }
+    }
+
+    &:nth-child(n + 3) {
+      display: none;
+      padding: 5px 20px;
+
+      .planet__label--mobile {
+        font-weight: 700;
+        margin-right: 5px;
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  .planet__label--desktop {
+    display: none;
+  }
+}
